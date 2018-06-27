@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    
+    <title>Wether Buddy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- include Bootstrap CSS for layout -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <style>
+    body{
+      margin: 0;
+    }
+
+    #mapa{
+      height: 800px;
+      width: 100%;
+    }
+
+    .glyphicon-search{
+      font-size: 20px;
+    }
+    .btn-default{
+      width: 100px;
+      padding: 12px;
+    }
+    .form-control{
+      padding:25px;
+      font-size: 20px;
+    }
+    
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .row.content {height: 450px}
+    
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    @media screen and (max-width: 700px) {
+      .sidenav {
+        height: auto;
+        padding: 50px;
+        float: right;
+      }
+      .row.content {height:auto;} 
+    }
+
+    #blank{
+      background:deepskyblue;
+    }
+
+  </style>
+  
+  </head>
+  
+  <body>
+
+    <nav class="navbar navbar-inverse" style="background-color:deepskyblue; border-color: deepskyblue;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <div><img src="weather-report-3348.png"></div>
+    </div>
+    
+  </div>
+</nav>
+
+<div id="blank">
+<div class="container text-center" id="conteudo">    
+  
+    <div class="row content">
+      
+    
+    <div class="row">
+      <div class="col-sm-4 text-left" style="background-color:deepskyblue; padding-top: 130px; padding-bottom: 20px; width: auto; color: white; text-align: justify;">
+        <h1 id="txt1">Wether Buddy</h1>
+        <p id="txt2">Com o Wether Buddy você é capaz de saber qual é a temperatura atual em qualquer local.</p>
+        <p>Quer passear à beira da praia? Uma visita a um lugar em especial? Ou apenas é a que a temeperatura se encontra no seu local de trabalho? Com Wether Buddy você é capaz de ter essa mesma informação!</p>
+        <p>Apenas coloque o nome a área da qual você quer obter a informação desejada e nós daremos-lhe informação sobre a temperatura atual, máxima e mínima, assim como nívieis de humidade e níveis UV.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  
+<div class="container" style=" padding-bottom: 100px; padding-top: 20px;">
+  
+  <div class="col-sm-8">
+    <h1>{{title}}</h1>
+      <form action="/weather">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="..." name="search">
+          <div class="input-group-btn">
+            <button class="btn btn-default " style="background:deepskyblue;" type="submit"><i class="glyphicon glyphicon-search">Procurar</i></button>
+          </div>
+        </div>
+      </form>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+  <footer class="container-fluid text-center" id="footer" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; background: deepskyblue; width: 100%; bottom: 0px;">
+  <p>&copy; Isabel Pereira |-| André Camarinha</p>
+  <p>2017/2018</p>
+</footer>
