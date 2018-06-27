@@ -13,7 +13,7 @@ app.get ('/',
     {
         res.render('main.hbs',
         {
-            title: "O que procuras?",
+            title: "Que local queres procurar?",
         });
     }
 );
@@ -26,11 +26,10 @@ app.get ('/weather',
 
         var address = req.query.texto;
         var encodedAddress = encodeURIComponent(address);
-        var temp;
-        var apparentTemp;
 
         var GoogleAPI = ""; //preencher
         var DarkSkyAPI = ""; //preencher
+    
     
         request (
             {url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${GoogleAPI}`
@@ -43,16 +42,23 @@ app.get ('/weather',
                 {url: `https://api.darksky.net/forecast/${DarkSkyAPI}/${lat},${lng}?units=si`,
                 json: true
             }, (DSerror, DSresponse, DSbody) => {
-                var temp = DSbody.currently.temperature;
-                var apparentTemp = DSbody.currently.apparentTemperature;
-                console.log(`Temperatura: ${temp}; Temperatura aparente: ${apparentTemp}`);
+                var nowTemp = DSbody.currently.temperature;
+                var maxTemp = DSbody.daily.data[0].temperatureMax;
+                var minTemp = DSbody.daily.data[0].temperatureMin;
+                var apparentTemp = DSbody.currently.apparentTemperature; 
+                var humid = DSbody.currently.humidity;
+                var UV = DSbody.currently.uvIndex;
 
                 //////////////////////
                 res.render('results.hbs',
                 {
                     title: "Aqui tens!",
-                    tempCurrent: temp, 
-                    tempFeel: apparentTemp
+                    tempCurrent: nowTemp, 
+                    tempFeel: apparentTemp,
+                    tempMax: maxTemp,
+                    tempMin: minTemp,
+                    humidity: humid,
+                    uvLevel: UV
                 });
             }
             )
