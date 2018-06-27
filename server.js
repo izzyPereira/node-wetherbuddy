@@ -59,9 +59,7 @@ app.get ('/weather',
                     tempMin: minTemp,
                     humidity: humid,
                     uvLevel: UV,
-                    clientAddress: address,
-                    latitude: lat,
-                    longitude: lng
+                    clientAddress: address
                 });
             }
             );
